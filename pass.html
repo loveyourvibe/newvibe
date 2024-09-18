@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Protected</title>
+    <link rel="stylesheet" href="pass_styles.css">
+</head>
+<body>
+    <div class="message-container">
+        <p>aree agu abdul endk thondara ni name eh dini password</p>
+        <button id="revealButton">Reveal Password Box</button>
+        <form id="passwordForm" style="display:none;">
+            <input type="password" id="password" placeholder="Enter password" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('revealButton').addEventListener('click', function() {
+            document.getElementById('passwordForm').style.display = 'block';
+            this.style.display = 'none';
+        });
+
+        document.getElementById('passwordForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var enteredPassword = document.getElementById('password').value.toLowerCase();
+            var validPasswords = ['Abdul', 'abdul'];
+            if (validPasswords.includes(enteredPassword)) {
+                window.location.href = 'success.html';
+            } else {
+                alert('Incorrect password. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Page</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #ffecd2, #fcb69f, #d4fc79, #96e6a1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            animation: gradient 10s infinite alternate;
+            overflow: hidden;
+        }
+        h1 {
+            color: black;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        p {
+            color: black;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+        @keyframes gradient {
+            0% {
+                background: linear-gradient(to right, #ffecd2, #fcb69f, #d4fc79, #96e6a1);
+            }
+            50% {
+                background: linear-gradient(to right, #fcb69f, #ffecd2, #96e6a1, #d4fc79);
+            }
+            100% {
+                background: linear-gradient(to right, #d4fc79, #96e6a1, #fcb69f, #ffecd2);
+            }
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px;
+        }
+        .button-red {
+            background-color: red;
+        }
+        .button-red:hover {
+            background-color: red;
+        }
+    </style>
+    <script>
+        let noClickCount = 0;
+
+        function moveNoButton() {
+            var noButton = document.getElementById('noButton');
+            noButton.style.position = 'absolute';
+            noButton.style.top = Math.random() * (window.innerHeight - 50) + 'px';
+            noButton.style.left = Math.random() * (window.innerWidth - 100) + 'px';
+            noClickCount++;
+            if (noClickCount >= 3) {
+                document.getElementById('comment').style.display = 'block';
+            }
+        }
+
+        function setupNoButton() {
+            var noButton = document.getElementById('noButton');
+            noButton.onmouseover = moveNoButton;
+            noButton.onclick = moveNoButton;
+        }
+
+        window.onload = setupNoButton;
+    </script>
+</head>
+<body>
+    <h1>Do you love me..?</h1>
+    <div>
+        <a href="msg.html" class="button">Yes</a>
+        <button id="noButton" class="button button-red">No</button>
+    </div>
+    <p id="comment" style="display: none;">Yes nokalsinde..😉</p>
+</body>
+</html>
